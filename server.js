@@ -22,7 +22,9 @@ const posts = [
 ]
 
 app.get('/getPosts',authenticateToken,(req,res)=>{
+
     res.json(posts.filter(post => post.username === req.user.name))
+
 })
 
 
@@ -37,7 +39,7 @@ function authenticateToken(req,res,next){
 
     jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
         if(err){
-            //dont have access token no longer valid
+            //send a status code as dont have access token and no longer valid
             return res.sendStatus(403)
         }
         req.user = user
