@@ -13,7 +13,7 @@ let refreshTokens = []
 
 
 app.post('/login',(req,res)=>{
-    // authenticate user
+    // authenticate user using jwt
     const username = req.body.username
     const user = {name : username}
 
