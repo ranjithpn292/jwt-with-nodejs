@@ -31,7 +31,7 @@ function authenticateToken(req,res,next){
     // since token comes in the form of (BEARER token) take 2nd parameter as below
     const token = authHeader && authHeader.split(' ')[1]
     if(token == null){
-        // they have not sent a token
+        //send a status code as they have not sent a token
         return res.sendStatus(401)
     }
 
